@@ -1,3 +1,7 @@
-# MEMOR.IA
+# MEMORAI
 
-Projecto del grupo 5 de SocialHack para prevenir y paliar el Alzheimer.
+A new Flutter project.
+
+## Getting Started
+
+FlutterFlow projects are built to run on the Flutter _stable_ release.
