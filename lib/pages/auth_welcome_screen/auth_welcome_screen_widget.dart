@@ -458,7 +458,7 @@ class _AuthWelcomeScreenWidgetState extends State<AuthWelcomeScreenWidget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 16.0, 0.0, 0.0),
                                             child: Text(
-                                              'Ayuda a prevenir el alzheimer conectando con sus emociones pasadas',
+                                              'Ayuda a prevenir y paliar el Alzheimer conectando con sus emociones pasadas',
                                               textAlign: TextAlign.center,
                                               style:
                                                   FlutterFlowTheme.of(context)

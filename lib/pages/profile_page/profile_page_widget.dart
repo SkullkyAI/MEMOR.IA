@@ -34,23 +34,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
   late ProfilePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  var hasContainerTriggered1 = false;
-  var hasContainerTriggered2 = false;
+  var hasContainerTriggered = false;
   final animationsMap = {
-    'containerOnActionTriggerAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: false,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 350.ms,
-          begin: Offset(40.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnActionTriggerAnimation2': AnimationInfo(
+    'containerOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: false,
       effects: [
@@ -300,7 +286,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    profilePageUsersRecord.displayName,
+                                    'Olivia',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall,
                                   ),
@@ -323,7 +309,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 8.0, 0.0, 0.0),
                                   child: Text(
-                                    profilePageUsersRecord.email,
+                                    'Olivia.Orozco@gmail.com',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -343,7 +329,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'Ailments',
+                                    'Hija de Antonio Orozco',
                                     textAlign: TextAlign.start,
                                     style:
                                         FlutterFlowTheme.of(context).bodySmall,
@@ -359,7 +345,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 children: [
                                   Expanded(
                                     child: AutoSizeText(
-                                      profilePageUsersRecord.ailments,
+                                      'Mujer',
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall,
                                     ),
@@ -379,7 +365,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Next Appointment',
+                                        'Registrada desde:',
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall,
@@ -388,7 +374,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
-                                          'Aug 20, 2021',
+                                          'Oct 19, 2023',
                                           style: FlutterFlowTheme.of(context)
                                               .displaySmall,
                                         ),
@@ -421,14 +407,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         setDarkModeSetting(
                                             context, ThemeMode.dark);
                                         if (animationsMap[
-                                                'containerOnActionTriggerAnimation2'] !=
+                                                'containerOnActionTriggerAnimation'] !=
                                             null) {
                                           setState(() =>
-                                              hasContainerTriggered2 = true);
+                                              hasContainerTriggered = true);
                                           SchedulerBinding.instance
                                               .addPostFrameCallback((_) async =>
                                                   await animationsMap[
-                                                          'containerOnActionTriggerAnimation2']!
+                                                          'containerOnActionTriggerAnimation']!
                                                       .controller
                                                       .forward(from: 0.0));
                                         }
@@ -448,83 +434,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                'Switch to Dark Mode',
+                                                'Cambia a Modo Oscuro',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
-                                              ),
-                                              Container(
-                                                width: 80.0,
-                                                height: 40.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20.0),
-                                                ),
-                                                child: Stack(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  children: [
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.95, 0.00),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    8.0,
-                                                                    0.0),
-                                                        child: Icon(
-                                                          Icons.nights_stay,
-                                                          color:
-                                                              Color(0xFF95A1AC),
-                                                          size: 20.0,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -0.85, 0.00),
-                                                      child: Container(
-                                                        width: 36.0,
-                                                        height: 36.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                              blurRadius: 4.0,
-                                                              color: Color(
-                                                                  0x430B0D0F),
-                                                              offset: Offset(
-                                                                  0.0, 2.0),
-                                                            )
-                                                          ],
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      30.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                        ),
-                                                      ).animateOnActionTrigger(
-                                                          animationsMap[
-                                                              'containerOnActionTriggerAnimation1']!,
-                                                          hasBeenTriggered:
-                                                              hasContainerTriggered1),
-                                                    ),
-                                                  ],
-                                                ),
                                               ),
                                             ],
                                           ),
@@ -533,131 +446,103 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     ),
                                   if (Theme.of(context).brightness ==
                                       Brightness.dark)
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        setDarkModeSetting(
-                                            context, ThemeMode.light);
-                                        if (animationsMap[
-                                                'containerOnActionTriggerAnimation1'] !=
-                                            null) {
-                                          setState(() =>
-                                              hasContainerTriggered1 = true);
-                                          SchedulerBinding.instance
-                                              .addPostFrameCallback((_) async =>
-                                                  await animationsMap[
-                                                          'containerOnActionTriggerAnimation1']!
-                                                      .controller
-                                                      .forward(from: 0.0));
-                                        }
-                                      },
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        decoration: BoxDecoration(),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 12.0, 24.0, 12.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                'Switch to Light Mode',
-                                                style:
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 12.0, 24.0, 12.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'Switch to Light Mode',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        color: Colors.white,
+                                                        fontSize: 14.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            ),
+                                            Container(
+                                              width: 80.0,
+                                              height: 40.0,
+                                              decoration: BoxDecoration(
+                                                color:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          color: Colors.white,
-                                                          fontSize: 14.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                        .primaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(20.0),
                                               ),
-                                              Container(
-                                                width: 80.0,
-                                                height: 40.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20.0),
-                                                ),
-                                                child: Stack(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  children: [
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -0.90, 0.00),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    8.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Icon(
-                                                          Icons
-                                                              .wb_sunny_rounded,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          size: 24.0,
-                                                        ),
+                                              child: Stack(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -0.90, 0.00),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  2.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Icon(
+                                                        Icons.wb_sunny_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 24.0,
                                                       ),
                                                     ),
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.90, 0.00),
-                                                      child: Container(
-                                                        width: 36.0,
-                                                        height: 36.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                              blurRadius: 4.0,
-                                                              color: Color(
-                                                                  0x430B0D0F),
-                                                              offset: Offset(
-                                                                  0.0, 2.0),
-                                                            )
-                                                          ],
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      30.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                        ),
-                                                      ).animateOnActionTrigger(
-                                                          animationsMap[
-                                                              'containerOnActionTriggerAnimation2']!,
-                                                          hasBeenTriggered:
-                                                              hasContainerTriggered2),
-                                                    ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.90, 0.00),
+                                                    child: Container(
+                                                      width: 36.0,
+                                                      height: 36.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 4.0,
+                                                            color: Color(
+                                                                0x430B0D0F),
+                                                            offset: Offset(
+                                                                0.0, 2.0),
+                                                          )
+                                                        ],
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(30.0),
+                                                        shape:
+                                                            BoxShape.rectangle,
+                                                      ),
+                                                    ).animateOnActionTrigger(
+                                                        animationsMap[
+                                                            'containerOnActionTriggerAnimation']!,
+                                                        hasBeenTriggered:
+                                                            hasContainerTriggered),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -680,7 +565,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Past Appointments',
+                            'Mis rutinas',
                             style: FlutterFlowTheme.of(context).bodySmall,
                           ),
                         ],
@@ -827,8 +712,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        listViewAppointmentsRecord
-                                                            .appointmentType,
+                                                        'Rutina',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -878,31 +762,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                         8.0,
                                                                         4.0),
                                                             child: Text(
-                                                              dateTimeFormat(
-                                                                  'MMMEd',
-                                                                  listViewAppointmentsRecord
-                                                                      .appointmentTime!),
+                                                              'EDITAR',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodySmall,
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        8.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              dateTimeFormat(
-                                                                  'jm',
-                                                                  listViewAppointmentsRecord
-                                                                      .appointmentTime!),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
                                                             ),
                                                           ),
                                                         ],
@@ -917,7 +780,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'For',
+                                                        'Para',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -934,8 +797,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          listViewAppointmentsRecord
-                                                              .appointmentName,
+                                                          'Antonio O.',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium

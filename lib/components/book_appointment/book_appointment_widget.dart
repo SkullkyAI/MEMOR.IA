@@ -206,6 +206,8 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
     super.initState();
     _model = createModel(context, () => BookAppointmentModel());
 
+    _model.personsNameController ??=
+        TextEditingController(text: 'Antonio Orozco');
     _model.personsNameFocusNode ??= FocusNode();
 
     _model.problemDescriptionController ??= TextEditingController();
@@ -295,7 +297,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 0.0),
                               child: Text(
-                                'Book Appointment',
+                                'Crea tu rutina',
                                 style:
                                     FlutterFlowTheme.of(context).headlineSmall,
                               ),
@@ -308,7 +310,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
-                                      'Fill out the information below in order to book your appointment with our office.',
+                                      'Rellena los siguientes campos para crear una rutina personalizada para Antonio O.',
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall,
                                     ),
@@ -320,7 +322,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: Text(
-                                'Emails will be sent to:',
+                                'Los correos se enviarán a:',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
@@ -328,7 +330,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 4.0, 0.0, 12.0),
                               child: Text(
-                                currentUserEmail,
+                                'Olivia.Orozco@gmail.com',
                                 style: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .override(
@@ -342,14 +344,11 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
                               child: TextFormField(
-                                controller: _model.personsNameController ??=
-                                    TextEditingController(
-                                  text: columnUsersRecord.displayName,
-                                ),
+                                controller: _model.personsNameController,
                                 focusNode: _model.personsNameFocusNode,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Booking For',
+                                  labelText: 'Rutina para',
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: OutlineInputBorder(
@@ -407,11 +406,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                               child: FlutterFlowDropDown<String>(
                                 controller: _model.dropDownValueController ??=
                                     FormFieldController<String>(null),
-                                options: [
-                                  'Doctors Visit',
-                                  'Routine Checkup',
-                                  'Scan/Update'
-                                ],
+                                options: ['Imágenes', 'Vídeos', 'Audios'],
                                 onChanged: (val) =>
                                     setState(() => _model.dropDownValue = val),
                                 width: MediaQuery.sizeOf(context).width * 0.9,
@@ -422,7 +417,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                       fontFamily: 'Plus Jakarta Sans',
                                       color: Colors.black,
                                     ),
-                                hintText: 'Type of Appointment',
+                                hintText: 'Tipos de rutina',
                                 icon: Icon(
                                   Icons.keyboard_arrow_down_rounded,
                                   color:
@@ -452,7 +447,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                 focusNode: _model.problemDescriptionFocusNode,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'What\'s the problem?',
+                                  labelText: 'Cuál es el problema?',
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: OutlineInputBorder(
@@ -590,7 +585,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                                     .fromSTEB(
                                                         20.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  'Choose Date & Time',
+                                                  'Elige fecha y hora',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -610,8 +605,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                                             .fromSTEB(20.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      dateTimeFormat('MMMEd',
-                                                          _model.datePicked),
+                                                      '19/11/2023',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -634,8 +628,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                                             .fromSTEB(2.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      dateTimeFormat('jm',
-                                                          _model.datePicked),
+                                                      '20:00',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -705,7 +698,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                     onPressed: () async {
                                       context.pop();
                                     },
-                                    text: 'Cancel',
+                                    text: 'Cancelar',
                                     options: FFButtonOptions(
                                       width: 100.0,
                                       height: 50.0,
@@ -752,7 +745,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                           ));
                                       context.pop();
                                     },
-                                    text: 'Book Now',
+                                    text: 'Crear Rutina',
                                     options: FFButtonOptions(
                                       width: 170.0,
                                       height: 50.0,

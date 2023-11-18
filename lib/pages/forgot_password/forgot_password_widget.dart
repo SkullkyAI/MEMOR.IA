@@ -62,7 +62,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
           hoverColor: Colors.transparent,
           highlightColor: Colors.transparent,
           onTap: () async {
-            context.pop();
+            context.pushNamed('homePage');
           },
           child: Icon(
             Icons.chevron_left_rounded,
@@ -71,7 +71,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
           ),
         ),
         title: Text(
-          'Forgot Password',
+          'He olvidado la contraseña',
           style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
@@ -99,7 +99,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Enter the email associated with your account and we will send you a verification code.',
+                      'Introduce tu correo para que podamos darle un código de verificación al email asignado.',
                       style: FlutterFlowTheme.of(context).bodySmall,
                     ),
                   ),
@@ -113,9 +113,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 focusNode: _model.emailAddressFocusNode,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelText: 'Email Address',
+                  labelText: 'Tu Email',
                   labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                  hintText: 'Enter your email...',
+                  hintText: 'Introduce tu Email...',
                   hintStyle: FlutterFlowTheme.of(context).bodySmall,
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -174,7 +174,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                     context: context,
                   );
                 },
-                text: 'Send Reset Link',
+                text: 'Enviar',
                 options: FFButtonOptions(
                   width: 230.0,
                   height: 50.0,

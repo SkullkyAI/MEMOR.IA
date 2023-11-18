@@ -46,7 +46,7 @@ class _MainLogoWidgetState extends State<MainLogoWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
             child: Image.asset(
-              'assets/images/health-ai_logoHorz_dark@3x.png',
+              'assets/images/Imatge_de_WhatsApp_2023-11-18_a_les_08.15.15_09b67675.jpg',
               width: 120.0,
               height: 40.0,
               fit: BoxFit.fitWidth,

@@ -19,3 +19,28 @@ export '/pages/appointment_details_profile/appointment_details_profile_widget.da
     show AppointmentDetailsProfileWidget;
 export '/pages/auth_welcome_screen/auth_welcome_screen_widget.dart'
     show AuthWelcomeScreenWidget;
+export '/imagenes/imagenes_widget.dart' show ImagenesWidget;
+export '/chat/chat_main/chat_main_widget.dart' show ChatMainWidget;
+export '/chat/chat_details/chat_details_widget.dart' show ChatDetailsWidget;
+export '/chat/chat_invite_users/chat_invite_users_widget.dart'
+    show ChatInviteUsersWidget;
+export '/chat/juego_principal/juego_principal_widget.dart'
+    show JuegoPrincipalWidget;
+export '/foto/foto_widget.dart' show FotoWidget;
+export '/chat/juego_principal2/juego_principal2_widget.dart'
+    show JuegoPrincipal2Widget;
+export '/chat/juego_principal3/juego_principal3_widget.dart'
+    show JuegoPrincipal3Widget;
+export '/chat/juego_principal4/juego_principal4_widget.dart'
+    show JuegoPrincipal4Widget;
+export '/chat/juego_principal5/juego_principal5_widget.dart'
+    show JuegoPrincipal5Widget;
+export '/chat/juego_principal6/juego_principal6_widget.dart'
+    show JuegoPrincipal6Widget;
+export '/chat/juego_principal7/juego_principal7_widget.dart'
+    show JuegoPrincipal7Widget;
+export '/chat/juego_principal8/juego_principal8_widget.dart'
+    show JuegoPrincipal8Widget;
+export '/p_f_i_n_a_l/p_f_i_n_a_l_widget.dart' show PFINALWidget;
+export '/chat/juego_principal9/juego_principal9_widget.dart'
+    show JuegoPrincipal9Widget;

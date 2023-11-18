@@ -82,7 +82,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
           ),
         ),
         title: Text(
-          'Add Another Profile',
+          'Añade un perfil',
           style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
@@ -115,7 +115,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                   children: [
                     Expanded(
                       child: Text(
-                        'Upload a photo for us to easily identify this person.',
+                        'Añade una foto para identificar al familiar',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
@@ -130,13 +130,13 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                     focusNode: _model.phoneNumberFocusNode1,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Persons Name',
+                      labelText: 'Nombre del familiar',
                       labelStyle:
                           FlutterFlowTheme.of(context).bodyMedium.override(
                                 fontFamily: 'Plus Jakarta Sans',
                                 color: Color(0xD86E2BFF),
                               ),
-                      hintText: 'Official name here...',
+                      hintText: 'Introduce el nombre...',
                       hintStyle: FlutterFlowTheme.of(context)
                           .bodyMedium
                           .override(
@@ -193,13 +193,13 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                     focusNode: _model.phoneNumberFocusNode2,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Persons Age',
+                      labelText: 'Edad del familiar',
                       labelStyle:
                           FlutterFlowTheme.of(context).bodyMedium.override(
                                 fontFamily: 'Plus Jakarta Sans',
                                 color: Color(0xD86E2BFF),
                               ),
-                      hintText: 'i.e. 34',
+                      hintText: 'Introduce la edad...',
                       hintStyle: FlutterFlowTheme.of(context)
                           .bodyMedium
                           .override(
@@ -257,13 +257,13 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                     focusNode: _model.phoneNumberFocusNode3,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Persons Ailments',
+                      labelText: 'Intereses',
                       labelStyle:
                           FlutterFlowTheme.of(context).bodyMedium.override(
                                 fontFamily: 'Plus Jakarta Sans',
                                 color: Color(0xD86E2BFF),
                               ),
-                      hintText: 'What types of allergies do they have..',
+                      hintText: '¿Que tipo de intereses tiene?',
                       hintStyle: FlutterFlowTheme.of(context)
                           .bodyMedium
                           .override(
@@ -320,13 +320,13 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                     focusNode: _model.phoneNumberFocusNode4,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Location',
+                      labelText: 'Nacimiento',
                       labelStyle:
                           FlutterFlowTheme.of(context).bodyMedium.override(
                                 fontFamily: 'Plus Jakarta Sans',
                                 color: Color(0xD86E2BFF),
                               ),
-                      hintText: 'Please enter a valid email...',
+                      hintText: 'Introduce el lugar de nacimiento',
                       hintStyle: FlutterFlowTheme.of(context)
                           .bodyMedium
                           .override(
@@ -402,8 +402,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                           child: Align(
                             alignment: AlignmentDirectional(0.00, 0.00),
                             child: FlutterFlowRadioButton(
-                              options:
-                                  ['Male', 'Female', 'Undisclosed'].toList(),
+                              options: ['Hombre', 'Mujer', 'Otro'].toList(),
                               onChanged: (val) => setState(() {}),
                               controller: _model.radioButtonValueController ??=
                                   FormFieldController<String>(null),
@@ -439,7 +438,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                     onPressed: () async {
                       context.pushNamed('homePage');
                     },
-                    text: 'Complete Profile',
+                    text: 'Completar perfil',
                     options: FFButtonOptions(
                       width: 230.0,
                       height: 50.0,
@@ -451,7 +450,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Plus Jakarta Sans',
-                                color: Color(0xD86E2BFF),
+                                color: FlutterFlowTheme.of(context).primaryText,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(

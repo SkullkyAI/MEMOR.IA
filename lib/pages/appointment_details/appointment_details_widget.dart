@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'appointment_details_model.dart';
 export 'appointment_details_model.dart';
 
@@ -88,7 +89,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.pop();
+                context.pushNamed('homePage');
               },
               child: Icon(
                 Icons.chevron_left_rounded,
@@ -97,7 +98,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
               ),
             ),
             title: Text(
-              'Details',
+              'Detalles',
               style: FlutterFlowTheme.of(context).headlineSmall,
             ),
             actions: [],
@@ -115,7 +116,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                     children: [
                       Expanded(
                         child: Text(
-                          'Type of Appointment',
+                          'Tipo de rutina',
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
@@ -129,7 +130,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                     children: [
                       Expanded(
                         child: Text(
-                          appointmentDetailsAppointmentsRecord.appointmentType,
+                          'Navidad',
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
@@ -149,7 +150,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                     children: [
                       Expanded(
                         child: Text(
-                          'What’s the problem?',
+                          'Descripción',
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
@@ -163,8 +164,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                     children: [
                       Expanded(
                         child: Text(
-                          appointmentDetailsAppointmentsRecord
-                              .appointmentDescription,
+                          'Rutina para recordar épocas navideñas.',
                           style: FlutterFlowTheme.of(context).bodySmall,
                         ),
                       ),
@@ -179,7 +179,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                     children: [
                       Expanded(
                         child: Text(
-                          'For',
+                          'De',
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
@@ -267,16 +267,14 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
-                                            appointmentDetailsAppointmentsRecord
-                                                .appointmentName,
+                                            'Olivia Orozco',
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineSmall,
                                           ),
                                         ],
                                       ),
                                       Text(
-                                        appointmentDetailsAppointmentsRecord
-                                            .appointmentEmail,
+                                        'Olivia.Orozco@gmail.com',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -307,7 +305,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
                           child: Text(
-                            'When',
+                            'Cuando',
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
@@ -321,24 +319,8 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        dateTimeFormat(
-                            'MMMEd',
-                            appointmentDetailsAppointmentsRecord
-                                .appointmentTime!),
+                        'Jul 26, 10:00am',
                         style: FlutterFlowTheme.of(context).displaySmall,
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              4.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            dateTimeFormat(
-                                'jm',
-                                appointmentDetailsAppointmentsRecord
-                                    .appointmentTime!),
-                            style: FlutterFlowTheme.of(context).displaySmall,
-                          ),
-                        ),
                       ),
                     ],
                   ),
@@ -353,7 +335,8 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                         barrierColor: Color(0x00000000),
                         context: context,
                         builder: (context) {
-                          return Padding(
+                          return WebViewAware(
+                              child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
                             child: Container(
                               height: 720.0,
@@ -362,11 +345,11 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                                     appointmentDetailsAppointmentsRecord,
                               ),
                             ),
-                          );
+                          ));
                         },
                       ).then((value) => safeSetState(() {}));
                     },
-                    text: 'Reschedule',
+                    text: 'Rutina',
                     options: FFButtonOptions(
                       width: 300.0,
                       height: 50.0,
@@ -408,7 +391,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                       );
                       context.pop();
                     },
-                    text: 'Cancel Appointment',
+                    text: 'Cancela',
                     options: FFButtonOptions(
                       width: 230.0,
                       height: 50.0,

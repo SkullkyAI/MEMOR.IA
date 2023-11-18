@@ -69,8 +69,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   ),
                 if (!(Theme.of(context).brightness == Brightness.dark))
                   Image.asset(
-                    'assets/images/logo_darkFull@2x.png',
-                    width: 200.0,
+                    'assets/images/Imatge_de_WhatsApp_2023-11-18_a_les_08.15.15_09b67675.jpg',
+                    width: 311.0,
                     height: 100.0,
                     fit: BoxFit.fitHeight,
                   ),
@@ -126,7 +126,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Stay in Touch',
+                                            'Añade recuerdos familiares',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall,
@@ -187,7 +187,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Schedule Appointments',
+                                            'Añade rutinas con un solo click',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall,
@@ -248,7 +248,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Doctor in your pocket',
+                                            'Doctor en tu bolsillo',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall,
@@ -326,10 +326,10 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      context.pushNamed('findSymptoms');
                     },
-                    text: 'Continue',
+                    text: 'Continuar',
                     options: FFButtonOptions(
                       width: 200.0,
                       height: 50.0,

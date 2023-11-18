@@ -129,8 +129,9 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'homePage': HomePageWidget(),
       'myAppointments': MyAppointmentsWidget(),
-      'findSymptoms': FindSymptomsWidget(),
       'profilePage': ProfilePageWidget(),
+      'findSymptoms': FindSymptomsWidget(),
+      'chat_Main': ChatMainWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -175,6 +176,18 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
+              Icons.account_circle_outlined,
+              size: 24.0,
+            ),
+            activeIcon: Icon(
+              Icons.account_circle_rounded,
+              size: 24.0,
+            ),
+            label: '•',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
               Icons.favorite_border_rounded,
               size: 24.0,
             ),
@@ -187,14 +200,10 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.account_circle_outlined,
+              Icons.forum_outlined,
               size: 24.0,
             ),
-            activeIcon: Icon(
-              Icons.account_circle_rounded,
-              size: 24.0,
-            ),
-            label: '•',
+            label: '__',
             tooltip: '',
           )
         ],

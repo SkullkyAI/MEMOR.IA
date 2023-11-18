@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'my_appointments_model.dart';
 export 'my_appointments_model.dart';
 
@@ -62,7 +63,8 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
             barrierColor: Color(0x00000000),
             context: context,
             builder: (context) {
-              return Padding(
+              return WebViewAware(
+                  child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
                   height: double.infinity,
@@ -70,7 +72,7 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                     userProfile: currentUserReference,
                   ),
                 ),
-              );
+              ));
             },
           ).then((value) => safeSetState(() {}));
         },
@@ -86,7 +88,7 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
-          'Appointments',
+          'Rutinas',
           style: FlutterFlowTheme.of(context).displaySmall,
         ),
         actions: [
@@ -113,7 +115,7 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
-                    'My Appointments',
+                    'Mis rutinas',
                     style: FlutterFlowTheme.of(context).bodySmall,
                   ),
                 ],
@@ -231,8 +233,7 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                listViewAppointmentsRecord
-                                                    .appointmentType,
+                                                'Rutina Personalizada',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineSmall,
@@ -252,10 +253,7 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 4.0, 4.0, 0.0),
                                           child: Text(
-                                            valueOrDefault<String>(
-                                              'For ${appointmentCardAppointmentsRecord.appointmentName}',
-                                              'For AppointmentName',
-                                            ),
+                                            'Antonio 0.',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -293,30 +291,11 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                                                             .fromSTEB(8.0, 4.0,
                                                                 0.0, 4.0),
                                                     child: Text(
-                                                      dateTimeFormat(
-                                                          'MMMEd',
-                                                          listViewAppointmentsRecord
-                                                              .appointmentTime!),
+                                                      'EDITAR',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .bodyMedium,
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(4.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      dateTimeFormat(
-                                                          'jm',
-                                                          appointmentCardAppointmentsRecord
-                                                              .appointmentTime!),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall,
                                                     ),
                                                   ),
                                                 ],

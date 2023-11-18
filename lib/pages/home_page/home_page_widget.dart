@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -135,7 +136,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
                           child: Text(
-                            'Good Morning',
+                            '¡BUENOS DÍAS!',
                             style: FlutterFlowTheme.of(context).displaySmall,
                           ),
                         ),
@@ -152,11 +153,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
-                            homePageUsersRecord.displayName,
+                            'Olivia [Familiar]',
                             style: FlutterFlowTheme.of(context)
                                 .headlineMedium
                                 .override(
                                   fontFamily: 'Outfit',
+                                  color: FlutterFlowTheme.of(context).primary,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -184,7 +186,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 0.0),
                           child: Text(
-                            'Your next appointment',
+                            'Tus rutinas de Memor.IA',
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
@@ -318,8 +320,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             .fromSTEB(4.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      nextAppointmentSectionAppointmentsRecord
-                                                          .appointmentType,
+                                                      'Rutina Navidad',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -347,8 +348,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             .fromSTEB(4.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: AutoSizeText(
-                                                      nextAppointmentSectionAppointmentsRecord
-                                                          .appointmentDescription,
+                                                      'Incluye regalos de su infancia',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -399,10 +399,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                         2.0,
                                                                         4.0),
                                                             child: Text(
-                                                              dateTimeFormat(
-                                                                  'MMMEd',
-                                                                  nextAppointmentSectionAppointmentsRecord
-                                                                      .appointmentTime!),
+                                                              '18/11/2023',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium,
@@ -417,10 +414,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                         8.0,
                                                                         4.0),
                                                             child: Text(
-                                                              dateTimeFormat(
-                                                                  'jm',
-                                                                  nextAppointmentSectionAppointmentsRecord
-                                                                      .appointmentTime!),
+                                                              ' ',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodySmall,
@@ -436,7 +430,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             .fromSTEB(8.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      'For',
+                                                      'Para',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -453,8 +447,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        nextAppointmentSectionAppointmentsRecord
-                                                            .appointmentName,
+                                                        'Antonio O.',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -462,9 +455,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Plus Jakarta Sans',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
+                                                                  color: Color(
+                                                                      0xD86E2BFF),
                                                                 ),
                                                       ),
                                                     ),
@@ -525,7 +517,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         barrierColor: Color(0x00000000),
                                         context: context,
                                         builder: (context) {
-                                          return Padding(
+                                          return WebViewAware(
+                                              child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
                                             child: Container(
@@ -537,7 +530,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     .reference,
                                               ),
                                             ),
-                                          );
+                                          ));
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },
@@ -568,7 +561,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'Book Appointment',
+                                                  'Crea su Rutina',
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -589,7 +582,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 8.0),
                                                     child: AutoSizeText(
-                                                      'Schedule an appointment with our licensed professional.',
+                                                      'Crea una rutina personalizada para tu familiar',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -666,7 +659,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    'Call the Office',
+                                                    'Llama a tu centro',
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -767,7 +760,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    'Email Us',
+                                                    'Contactanos',
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -789,7 +782,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                   0.0,
                                                                   8.0),
                                                       child: AutoSizeText(
-                                                        'Send us an email and we will get back to you within 2 days.',
+                                                        'Envianos un mail y te contestamos en menos de 48 horas',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)

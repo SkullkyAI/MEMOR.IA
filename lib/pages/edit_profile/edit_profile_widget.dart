@@ -37,14 +37,17 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
     super.initState();
     _model = createModel(context, () => EditProfileModel());
 
+    _model.yourNameController ??= TextEditingController(text: 'Tu nombre...');
     _model.yourNameFocusNode ??= FocusNode();
 
-    _model.yourEmailController ??=
-        TextEditingController(text: currentUserEmail);
+    _model.yourEmailController ??= TextEditingController(text: 'Tu Email...');
     _model.yourEmailFocusNode ??= FocusNode();
 
+    _model.yourAgeController ??= TextEditingController(text: 'Tu edad...');
     _model.yourAgeFocusNode ??= FocusNode();
 
+    _model.yourAilmentsController ??=
+        TextEditingController(text: 'Tus intereses...');
     _model.yourAilmentsFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -101,7 +104,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.pop();
+                context.pushNamed('profilePage');
               },
               child: Icon(
                 Icons.chevron_left_rounded,
@@ -110,7 +113,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
               ),
             ),
             title: Text(
-              'Edit Profile',
+              'Edita perfil',
               style: FlutterFlowTheme.of(context).headlineSmall,
             ),
             actions: [],
@@ -212,7 +215,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             }
                           }
                         },
-                        text: 'Change Photo',
+                        text: 'Cambiar foto',
                         options: FFButtonOptions(
                           width: 140.0,
                           height: 40.0,
@@ -235,14 +238,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                       child: TextFormField(
-                        controller: _model.yourNameController ??=
-                            TextEditingController(
-                          text: editProfileUsersRecord.displayName,
-                        ),
+                        controller: _model.yourNameController,
                         focusNode: _model.yourNameFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Your Name',
+                          labelText: 'Tu nombre',
                           labelStyle: FlutterFlowTheme.of(context).bodySmall,
                           hintText: 'Please enter a valid number...',
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,
@@ -293,9 +293,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         focusNode: _model.yourEmailFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Email Address',
+                          labelText: 'Tu email',
                           labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                          hintText: 'Your email',
+                          hintText: 'Tu email',
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -341,14 +341,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                       child: TextFormField(
-                        controller: _model.yourAgeController ??=
-                            TextEditingController(
-                          text: editProfileUsersRecord.age.toString(),
-                        ),
+                        controller: _model.yourAgeController,
                         focusNode: _model.yourAgeFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Your Age',
+                          labelText: 'Tu edad',
                           labelStyle: FlutterFlowTheme.of(context).bodySmall,
                           hintText: 'i.e. 34',
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,
@@ -396,14 +393,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                       child: TextFormField(
-                        controller: _model.yourAilmentsController ??=
-                            TextEditingController(
-                          text: editProfileUsersRecord.ailments,
-                        ),
+                        controller: _model.yourAilmentsController,
                         focusNode: _model.yourAilmentsFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Ailments',
+                          labelText: 'Tus intereses',
                           labelStyle: FlutterFlowTheme.of(context).bodySmall,
                           hintText: 'What types of allergies do you have..',
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,
@@ -454,7 +448,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Your Birth Sex',
+                            'Tu género',
                             style: FlutterFlowTheme.of(context).bodySmall,
                           ),
                         ],
@@ -467,7 +461,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           FlutterFlowRadioButton(
-                            options: ['Male', 'Female', 'Undisclosed'].toList(),
+                            options: ['Hombre', 'Mujer', 'Otro'].toList(),
                             onChanged: (val) => setState(() {}),
                             controller: _model.radioButtonValueController ??=
                                 FormFieldController<String>(
@@ -496,17 +490,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          await editProfileUsersRecord.reference
-                              .update(createUsersRecordData(
-                            displayName: _model.yourNameController.text,
-                            email: _model.yourEmailController.text,
-                            age: int.tryParse(_model.yourAgeController.text),
-                            ailments: _model.yourAilmentsController.text,
-                            userSex: _model.radioButtonValue,
-                          ));
-                          context.pop();
+                          context.pushNamed('profilePage');
                         },
-                        text: 'Save Changes',
+                        text: 'Guarda los cambios',
                         options: FFButtonOptions(
                           width: 230.0,
                           height: 50.0,

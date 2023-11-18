@@ -324,7 +324,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.pop();
+              context.pushNamed('profilePage');
             },
             child: Icon(
               Icons.chevron_left_rounded,
@@ -333,7 +333,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
             ),
           ),
           title: Text(
-            'Complete Profile',
+            'Completar Perfil',
             style: FlutterFlowTheme.of(context).headlineSmall,
           ),
           actions: [],
@@ -377,7 +377,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                       ).animateOnPageLoad(
                           animationsMap['circleImageOnPageLoadAnimation']!),
                       Text(
-                        'Upload a photo for us to easily identify you.',
+                        'Sube una foto tuya.',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation1']!),
@@ -389,9 +389,9 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                           focusNode: _model.yourNameFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'Your Name',
+                            labelText: 'Tu nombre',
                             labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                            hintText: 'Please enter a valid number...',
+                            hintText: 'Tu nombre',
                             hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -441,9 +441,9 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                           focusNode: _model.yourAgeFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'Your Age',
+                            labelText: 'Tu edad',
                             labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                            hintText: 'i.e. 34',
+                            hintText: 'Tu edad...',
                             hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -494,9 +494,9 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                           focusNode: _model.ailmentsFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'Ailments',
+                            labelText: 'Intereses',
                             labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                            hintText: 'What types of allergies do you have..',
+                            hintText: 'Tus intereses...',
                             hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -545,7 +545,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Your Birth Sex',
+                              'Tu género',
                               style: FlutterFlowTheme.of(context).bodyMedium,
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation2']!),
@@ -561,8 +561,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: FlutterFlowRadioButton(
-                                options:
-                                    ['Male', 'Female', 'Undisclosed'].toList(),
+                                options: ['Hombre', 'Mujer', 'Otro'].toList(),
                                 onChanged: (val) => setState(() {}),
                                 controller:
                                     _model.radioButtonValueController ??=
@@ -668,7 +667,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
 
                                 context.pushNamed('homePage');
                               },
-                              text: 'Complete Profile',
+                              text: 'Completar Perfil',
                               options: FFButtonOptions(
                                 width: 230.0,
                                 height: 50.0,

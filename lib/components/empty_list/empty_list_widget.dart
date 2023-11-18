@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'empty_list_model.dart';
 export 'empty_list_model.dart';
 
@@ -91,13 +92,14 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                 barrierColor: Color(0x230E151B),
                 context: context,
                 builder: (context) {
-                  return Padding(
+                  return WebViewAware(
+                      child: Padding(
                     padding: MediaQuery.viewInsetsOf(context),
                     child: Container(
                       height: double.infinity,
                       child: BookAppointmentWidget(),
                     ),
-                  );
+                  ));
                 },
               ).then((value) => safeSetState(() {}));
             },

@@ -43,11 +43,10 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
     _model = createModel(context, () => EditBookingModel());
 
     _model.personsNameController ??=
-        TextEditingController(text: widget.userAppointment?.appointmentName);
+        TextEditingController(text: 'Rutina para...');
     _model.personsNameFocusNode ??= FocusNode();
 
-    _model.problemDescriptionController ??= TextEditingController(
-        text: widget.userAppointment?.appointmentDescription);
+    _model.problemDescriptionController ??= TextEditingController();
     _model.problemDescriptionFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -108,7 +107,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 0.0),
                           child: Text(
-                            'Edit Appointment',
+                            'Edita Rutina',
                             style: FlutterFlowTheme.of(context).headlineSmall,
                           ),
                         ),
@@ -120,7 +119,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Text(
-                                  'Edit the fields below in order to change your appointment.',
+                                  'Edita tu rutina',
                                   style: FlutterFlowTheme.of(context).bodySmall,
                                 ),
                               ),
@@ -131,7 +130,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 12.0, 0.0, 0.0),
                           child: Text(
-                            'Emails will be sent to:',
+                            'Los mails se enviarán a...',
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
@@ -139,7 +138,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 12.0),
                           child: Text(
-                            currentUserEmail,
+                            'Olivia.Orozco@gmail.com',
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
@@ -156,7 +155,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                             focusNode: _model.personsNameFocusNode,
                             obscureText: false,
                             decoration: InputDecoration(
-                              labelText: 'Booking For',
+                              labelText: 'Rutina',
                               labelStyle:
                                   FlutterFlowTheme.of(context).bodySmall,
                               enabledBorder: OutlineInputBorder(
@@ -211,14 +210,13 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                           child: FlutterFlowDropDown<String>(
                             controller: _model.dropDownValueController ??=
                                 FormFieldController<String>(
-                              _model.dropDownValue ??=
-                                  widget.userAppointment?.appointmentType,
+                              _model.dropDownValue ??= 'Tipo de rutina',
                             ),
                             options: [
-                              'Type of Appointment',
-                              'Doctors Visit',
-                              'Routine Checkup',
-                              'Scan/Update'
+                              'Navidad',
+                              'Cumpleaños',
+                              'Halloween',
+                              'Vestirse'
                             ],
                             onChanged: (val) =>
                                 setState(() => _model.dropDownValue = val),
@@ -258,7 +256,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                             focusNode: _model.problemDescriptionFocusNode,
                             obscureText: false,
                             decoration: InputDecoration(
-                              labelText: 'What\'s the problem?',
+                              labelText: 'Descripción',
                               labelStyle:
                                   FlutterFlowTheme.of(context).bodySmall,
                               enabledBorder: OutlineInputBorder(
@@ -392,7 +390,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              'Choose Date',
+                                              'Fecha',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -411,34 +409,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                                                     .fromSTEB(
                                                         20.0, 4.0, 0.0, 0.0),
                                                 child: Text(
-                                                  dateTimeFormat(
-                                                      'MMMEd',
-                                                      widget.userAppointment!
-                                                          .appointmentTime!),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiary,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        2.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  dateTimeFormat(
-                                                      'jm',
-                                                      widget.userAppointment!
-                                                          .appointmentTime!),
+                                                  '18/11/2023',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodySmall
@@ -486,7 +457,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                                 onPressed: () async {
                                   context.pop();
                                 },
-                                text: 'Cancel',
+                                text: 'Cancelar',
                                 options: FFButtonOptions(
                                   width: 100.0,
                                   height: 50.0,
@@ -524,7 +495,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                                   ));
                                   context.pop();
                                 },
-                                text: 'Save Changes',
+                                text: 'Guardar cambios',
                                 options: FFButtonOptions(
                                   width: 170.0,
                                   height: 50.0,

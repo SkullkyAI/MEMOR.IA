@@ -176,8 +176,96 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'auth_WelcomeScreen',
           path: '/authWelcomeScreen',
           builder: (context, params) => AuthWelcomeScreenWidget(),
+        ),
+        FFRoute(
+          name: 'IMAGENES',
+          path: '/imagenes',
+          builder: (context, params) => ImagenesWidget(),
+        ),
+        FFRoute(
+          name: 'chat_Main',
+          path: '/chatMain',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'chat_Main')
+              : ChatMainWidget(),
+        ),
+        FFRoute(
+          name: 'chat_Details',
+          path: '/chatDetails',
+          asyncParams: {
+            'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
+          },
+          builder: (context, params) => ChatDetailsWidget(
+            chatRef: params.getParam('chatRef', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'chat_InviteUsers',
+          path: '/chatInviteUsers',
+          asyncParams: {
+            'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
+          },
+          builder: (context, params) => ChatInviteUsersWidget(
+            chatRef: params.getParam('chatRef', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'Juego_principal',
+          path: '/juegoPrincipal',
+          builder: (context, params) => JuegoPrincipalWidget(),
+        ),
+        FFRoute(
+          name: 'FOTO',
+          path: '/foto',
+          builder: (context, params) => FotoWidget(),
+        ),
+        FFRoute(
+          name: 'Juego_principal2',
+          path: '/juegoPrincipal2',
+          builder: (context, params) => JuegoPrincipal2Widget(),
+        ),
+        FFRoute(
+          name: 'Juego_principal3',
+          path: '/juegoPrincipal3',
+          builder: (context, params) => JuegoPrincipal3Widget(),
+        ),
+        FFRoute(
+          name: 'Juego_principal4',
+          path: '/juegoPrincipal4',
+          builder: (context, params) => JuegoPrincipal4Widget(),
+        ),
+        FFRoute(
+          name: 'Juego_principal5',
+          path: '/juegoPrincipal5',
+          builder: (context, params) => JuegoPrincipal5Widget(),
+        ),
+        FFRoute(
+          name: 'Juego_principal6',
+          path: '/juegoPrincipal5',
+          builder: (context, params) => JuegoPrincipal6Widget(),
+        ),
+        FFRoute(
+          name: 'Juego_principal7',
+          path: '/juegoPrincipal7',
+          builder: (context, params) => JuegoPrincipal7Widget(),
+        ),
+        FFRoute(
+          name: 'Juego_principal8',
+          path: '/juegoPrincipal8',
+          builder: (context, params) => JuegoPrincipal8Widget(),
+        ),
+        FFRoute(
+          name: 'pFINAL',
+          path: '/pFINAL',
+          builder: (context, params) => PFINALWidget(),
+        ),
+        FFRoute(
+          name: 'Juego_principal9',
+          path: '/juegoPrincipal9',
+          builder: (context, params) => JuegoPrincipal9Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {

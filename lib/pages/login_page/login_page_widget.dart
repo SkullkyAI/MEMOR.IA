@@ -121,13 +121,23 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 if (!(Theme.of(context).brightness ==
                                     Brightness.dark))
                                   Image.asset(
-                                    'assets/images/logo_darkFull@2x.png',
+                                    'assets/images/Untitled_Artwork_2.png',
                                     width: 200.0,
                                     height: 130.0,
                                     fit: BoxFit.fitHeight,
                                   ),
                               ],
                             ),
+                          ),
+                          Text(
+                            'MEMOR.IA',
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                ),
                           ),
                           Expanded(
                             child: Column(
@@ -153,7 +163,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         text: 'Login',
                                       ),
                                       Tab(
-                                        text: 'Register',
+                                        text: 'Registro',
                                       ),
                                     ],
                                     controller: _model.tabBarController,
@@ -181,13 +191,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       .emailAddressLoginFocusNode,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
-                                                    labelText: 'Email Address',
+                                                    labelText: 'Email',
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodySmall,
                                                     hintText:
-                                                        'Enter your email...',
+                                                        'Introduce tu email...',
                                                     hintStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -269,13 +279,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   obscureText: !_model
                                                       .passwordLoginVisibility,
                                                   decoration: InputDecoration(
-                                                    labelText: 'Password',
+                                                    labelText: 'Contraseña',
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodySmall,
                                                     hintText:
-                                                        'Enter your password...',
+                                                        'Introduce tu contraseña...',
                                                     hintStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -439,7 +449,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     context.pushNamed(
                                                         'forgotPassword');
                                                   },
-                                                  text: 'Forgot Password',
+                                                  text:
+                                                      '¿Has olvidado la contraseña?',
                                                   options: FFButtonOptions(
                                                     width: 185.0,
                                                     height: 40.0,
@@ -496,7 +507,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         'homePage',
                                                         context.mounted);
                                                   },
-                                                  text: 'Continue as Guest',
+                                                  text:
+                                                      'Continua como invitado',
                                                   options: FFButtonOptions(
                                                     width: 230.0,
                                                     height: 50.0,
@@ -555,13 +567,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       .emailAddressFocusNode,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
-                                                    labelText: 'Email Address',
+                                                    labelText: 'Email',
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodySmall,
                                                     hintText:
-                                                        'Enter your email...',
+                                                        'Introduce tu Email...',
                                                     hintStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -643,13 +655,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   obscureText: !_model
                                                       .passwordCreateVisibility,
                                                   decoration: InputDecoration(
-                                                    labelText: 'Password',
+                                                    labelText: 'Contraseña',
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodySmall,
                                                     hintText:
-                                                        'Enter your password...',
+                                                        'Introduce tu contraseña...',
                                                     hintStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -752,13 +764,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       .passwordConfirmVisibility,
                                                   decoration: InputDecoration(
                                                     labelText:
-                                                        'Confirm Password',
+                                                        'Confirma tu contraseña',
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodySmall,
                                                     hintText:
-                                                        'Enter your password...',
+                                                        'Introduce tu contraseña de nuevo...',
                                                     hintStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -875,7 +887,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         'completeProfile',
                                                         context.mounted);
                                                   },
-                                                  text: 'Create Account',
+                                                  text: 'Registro',
                                                   options: FFButtonOptions(
                                                     width: 230.0,
                                                     height: 50.0,
@@ -930,7 +942,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         'homePage',
                                                         context.mounted);
                                                   },
-                                                  text: 'Continue as Guest',
+                                                  text:
+                                                      'Continua como invitado',
                                                   options: FFButtonOptions(
                                                     width: 230.0,
                                                     height: 50.0,
