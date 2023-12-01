@@ -20,7 +20,7 @@ export '/pages/appointment_details_profile/appointment_details_profile_widget.da
 export '/pages/auth_welcome_screen/auth_welcome_screen_widget.dart'
     show AuthWelcomeScreenWidget;
 export '/imagenes/imagenes_widget.dart' show ImagenesWidget;
-export '/chat/chat_main/chat_main_widget.dart' show ChatMainWidget;
+export '/chat/jugar/jugar_widget.dart' show JugarWidget;
 export '/chat/chat_details/chat_details_widget.dart' show ChatDetailsWidget;
 export '/chat/chat_invite_users/chat_invite_users_widget.dart'
     show ChatInviteUsersWidget;
@@ -44,3 +44,4 @@ export '/chat/juego_principal8/juego_principal8_widget.dart'
 export '/p_f_i_n_a_l/p_f_i_n_a_l_widget.dart' show PFINALWidget;
 export '/chat/juego_principal9/juego_principal9_widget.dart'
     show JuegoPrincipal9Widget;
+export '/group_chat/group_chat_widget.dart' show GroupChatWidget;

@@ -286,7 +286,7 @@ class _DeleteDialogWidgetState extends State<DeleteDialogWidget>
                         );
 
                         context.goNamed(
-                          'chat_Main',
+                          'JUGAR',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,

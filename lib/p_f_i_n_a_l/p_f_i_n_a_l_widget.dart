@@ -2,9 +2,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'p_f_i_n_a_l_model.dart';
 export 'p_f_i_n_a_l_model.dart';
 
@@ -24,6 +26,11 @@ class _PFINALWidgetState extends State<PFINALWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PFINALModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      context.pushNamed('homePage');
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -65,16 +72,20 @@ class _PFINALWidgetState extends State<PFINALWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.check_circle_rounded,
-                      color: FlutterFlowTheme.of(context).primary,
-                      size: 160.0,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                      child: Icon(
+                        Icons.check_circle_rounded,
+                        color: FlutterFlowTheme.of(context).primary,
+                        size: 160.0,
+                      ),
                     ),
                   ],
                 ),
               ),
               Text(
-                '¡FELICIDADES',
+                '¡FELICIDADES!',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Outfit',
                       color: FlutterFlowTheme.of(context).primary,
@@ -84,7 +95,7 @@ class _PFINALWidgetState extends State<PFINALWidget> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                child: Text(
+                child: GradientText(
                   'Has desbloqueado nuevos recuerdos',
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Plus Jakarta Sans',
@@ -92,6 +103,12 @@ class _PFINALWidgetState extends State<PFINALWidget> {
                         fontSize: 20.0,
                         fontWeight: FontWeight.normal,
                       ),
+                  colors: [
+                    FlutterFlowTheme.of(context).primary,
+                    FlutterFlowTheme.of(context).secondary
+                  ],
+                  gradientDirection: GradientDirection.ltr,
+                  gradientType: GradientType.linear,
                 ),
               ),
               Padding(
@@ -118,17 +135,16 @@ class _PFINALWidgetState extends State<PFINALWidget> {
                   ),
                 ),
               ),
-              Expanded(
-                child: Opacity(
-                  opacity: 0.6,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20.0),
-                    child: Image.asset(
-                      'assets/images/eee.PNG',
-                      width: 200.0,
-                      height: 100.0,
-                      fit: BoxFit.scaleDown,
-                    ),
+              Padding(
+                padding:
+                    EdgeInsetsDirectional.fromSTEB(105.0, 75.0, 120.0, 0.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/1-removebg-preview.png',
+                    width: 200.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

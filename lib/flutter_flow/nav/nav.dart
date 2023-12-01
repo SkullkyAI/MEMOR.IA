@@ -183,11 +183,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ImagenesWidget(),
         ),
         FFRoute(
-          name: 'chat_Main',
-          path: '/chatMain',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'chat_Main')
-              : ChatMainWidget(),
+          name: 'JUGAR',
+          path: '/JUGAR',
+          builder: (context, params) =>
+              params.isEmpty ? NavBarPage(initialPage: 'JUGAR') : JugarWidget(),
         ),
         FFRoute(
           name: 'chat_Details',
@@ -263,6 +262,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Juego_principal9',
           path: '/juegoPrincipal9',
           builder: (context, params) => JuegoPrincipal9Widget(),
+        ),
+        FFRoute(
+          name: 'GROUP_CHAT',
+          path: '/groupChat',
+          builder: (context, params) => GroupChatWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

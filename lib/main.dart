@@ -11,6 +11,7 @@ import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
@@ -129,9 +130,9 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'homePage': HomePageWidget(),
       'myAppointments': MyAppointmentsWidget(),
-      'profilePage': ProfilePageWidget(),
+      'JUGAR': JugarWidget(),
       'findSymptoms': FindSymptomsWidget(),
-      'chat_Main': ChatMainWidget(),
+      'profilePage': ProfilePageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -175,15 +176,11 @@ class _NavBarPageState extends State<NavBarPage> {
             tooltip: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.account_circle_outlined,
+            icon: FaIcon(
+              FontAwesomeIcons.playCircle,
               size: 24.0,
             ),
-            activeIcon: Icon(
-              Icons.account_circle_rounded,
-              size: 24.0,
-            ),
-            label: '•',
+            label: '__',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -200,10 +197,14 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.forum_outlined,
+              Icons.account_circle_outlined,
               size: 24.0,
             ),
-            label: '__',
+            activeIcon: Icon(
+              Icons.account_circle_rounded,
+              size: 24.0,
+            ),
+            label: '•',
             tooltip: '',
           )
         ],

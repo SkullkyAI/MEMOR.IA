@@ -224,7 +224,7 @@ class _ChatDetailsWidgetState extends State<ChatDetailsWidget> {
             ),
             onPressed: () async {
               context.pushNamed(
-                'chat_Main',
+                'JUGAR',
                 extra: <String, dynamic>{
                   kTransitionInfoKey: TransitionInfo(
                     hasTransition: true,

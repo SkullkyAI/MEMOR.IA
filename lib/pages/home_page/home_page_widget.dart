@@ -153,7 +153,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
-                            'Olivia [Familiar]',
+                            'Familiar Olivia',
                             style: FlutterFlowTheme.of(context)
                                 .headlineMedium
                                 .override(

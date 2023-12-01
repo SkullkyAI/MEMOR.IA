@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/flutter_flow_youtube_player.dart';
 import 'juego_principal7_widget.dart' show JuegoPrincipal7Widget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
